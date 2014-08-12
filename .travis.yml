@@ -10,24 +10,24 @@ before_deploy: echo 'ready?'
 after_deploy:
 - echo 'done!'
 - ./deploy-gh-pages.sh
+deploy:
+- provider: releases
+  api_key:
+    secure: iA8M5IC8kRPFpDUH8nnDl8hxBwjrkuJyh3M6dVvbDswe4/BEpbWV0WN5Cw/AHlzct6M+jCyKhLSFAo03g3ZghNgY9NYKykaPNlUjT+BWa09F45Icj6+fKC4PpgsSrBZnOdaOf9tGXvxEqAKyaBDZThbzqYuLsdOsWuxc8GlDDAc=
+  file: release/drawing-utils-lib.min.js
+  on:
+    repo: vinceallenvince/drawing-utils-lib
+    tags: true
+    all_branches: true
+- provider: npm
+  email: vince@vinceallen.com
+  api_key:
+    secure: dkB/0yWncpvvCqFYll2usMR/qtw2XXldZa3LJdIVW7YsP5nwpM9Ge5oCqpvmMQKyuxByzo9TStNwB7efTHR0Yq9e3XwFefaWsSr2iKygD6xDM6CkDywPEG3Zn9iLp/VXSwSX0NiUcPOlBG2muIYdzWbgWyYOBx4rPXifPzF8ytc=
+  on:
+    tags: true
+    all_branches: true
+    repo: vinceallenvince/drawing-utils-lib
 env:
   global:
   - GH_REF: github.com/vinceallenvince/drawing-utils-lib.git
-  - secure: iA8M5IC8kRPFpDUH8nnDl8hxBwjrkuJyh3M6dVvbDswe4/BEpbWV0WN5Cw/AHlzct6M+jCyKhLSFAo03g3ZghNgY9NYKykaPNlUjT+BWa09F45Icj6+fKC4PpgsSrBZnOdaOf9tGXvxEqAKyaBDZThbzqYuLsdOsWuxc8GlDDAc=
-deploy:
-  - provider: releases
-    api_key:
-      secure: iA8M5IC8kRPFpDUH8nnDl8hxBwjrkuJyh3M6dVvbDswe4/BEpbWV0WN5Cw/AHlzct6M+jCyKhLSFAo03g3ZghNgY9NYKykaPNlUjT+BWa09F45Icj6+fKC4PpgsSrBZnOdaOf9tGXvxEqAKyaBDZThbzqYuLsdOsWuxc8GlDDAc=
-    file: release/drawing-utils-lib.min.js
-    on:
-      repo: vinceallenvince/drawing-utils-lib
-      tags: true
-      all_branches: true
-  - provider: npm
-    email: vince@vinceallen.com
-    api_key:
-      secure: dkB/0yWncpvvCqFYll2usMR/qtw2XXldZa3LJdIVW7YsP5nwpM9Ge5oCqpvmMQKyuxByzo9TStNwB7efTHR0Yq9e3XwFefaWsSr2iKygD6xDM6CkDywPEG3Zn9iLp/VXSwSX0NiUcPOlBG2muIYdzWbgWyYOBx4rPXifPzF8ytc=
-    on:
-      tags: true
-      all_branches: true
-      repo: vinceallenvince/drawing-utils-lib
+  - secure: phAJE2vk/o/US2Xc/x6x6HaO5LXIhv3ZpgKLSacYK7sv9b9gOaU5QSC1IVme0oySv9gpS0WRSGu3KL+bfU1TEx+QnDGfhVbhoX1+/vt7XI92GpsS6Uxv5T61L3H49k0oMeO9xtKvQPHIG4BIoIA+pBVTTj+DcQPW7ZJn5VMhCb0=
