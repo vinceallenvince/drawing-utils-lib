@@ -13,7 +13,7 @@ after_deploy:
 env:
   global:
   - GH_REF: github.com/vinceallenvince/drawing-utils-lib.git
-  - secure: f/6OOalzi0RLEdbh+qV9q8IINikMAdP4SBIm7lnQHywDb1kAuP6hKgAVg3V1WDAhjggDettsmMp9JYvgA65BeWWBu53O+3YoG0xyTrfhlOw37tQAFvLCOALW5lfEZoSHGetVft59RTSUKvZTfqfJsa3ZKlU0YaCFghw+6OPwi5A=
+  - secure: iA8M5IC8kRPFpDUH8nnDl8hxBwjrkuJyh3M6dVvbDswe4/BEpbWV0WN5Cw/AHlzct6M+jCyKhLSFAo03g3ZghNgY9NYKykaPNlUjT+BWa09F45Icj6+fKC4PpgsSrBZnOdaOf9tGXvxEqAKyaBDZThbzqYuLsdOsWuxc8GlDDAc=
 deploy:
   - provider: releases
     api_key:
