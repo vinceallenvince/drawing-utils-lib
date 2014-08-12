@@ -10,10 +10,14 @@ before_deploy: echo 'ready?'
 after_deploy:
 - echo 'done!'
 - ./deploy-gh-pages.sh
+env:
+  global:
+  - GH_REF: github.com/vinceallenvince/drawing-utils-lib.git
+  - secure: f/6OOalzi0RLEdbh+qV9q8IINikMAdP4SBIm7lnQHywDb1kAuP6hKgAVg3V1WDAhjggDettsmMp9JYvgA65BeWWBu53O+3YoG0xyTrfhlOw37tQAFvLCOALW5lfEZoSHGetVft59RTSUKvZTfqfJsa3ZKlU0YaCFghw+6OPwi5A=
 deploy:
   - provider: releases
     api_key:
-      secure: qG3+nDlHKYE5bdRxu1uoywrzqtHosXtFD5mypn5wb1/5un7tdvQB9cvsZZJM6Qt/Gxdhn0kOYWsRaVkM72WExAHxtCTctAlcgHqvccuKz+swqnnzSXzxhwZ7EICmkCzqWH69cDI+kUW01DI1Irhni3O/3r47/Fk1O5IZP3NXF94=
+      secure: iA8M5IC8kRPFpDUH8nnDl8hxBwjrkuJyh3M6dVvbDswe4/BEpbWV0WN5Cw/AHlzct6M+jCyKhLSFAo03g3ZghNgY9NYKykaPNlUjT+BWa09F45Icj6+fKC4PpgsSrBZnOdaOf9tGXvxEqAKyaBDZThbzqYuLsdOsWuxc8GlDDAc=
     file: release/drawing-utils-lib.min.js
     on:
       repo: vinceallenvince/drawing-utils-lib
@@ -22,13 +26,8 @@ deploy:
   - provider: npm
     email: vince@vinceallen.com
     api_key:
-      secure: P32pxqIRFV7i7rd9H7lsyx3CE7MqWUiYigkTo4fEZPF8awO2dbEMk8caGOaFjNlKI78dQJ158dxYFt82SeTtu+0nrk9sU+4+o9dzW5zLklXYup2zTDk/dXxDh4Kk+PhkBJStxtJjV+cnVF8I47wrot8t3Cpssm6WZIWcUh3Ec1A=
-    file: release/drawing-utils-lib.min.js
+      secure: dkB/0yWncpvvCqFYll2usMR/qtw2XXldZa3LJdIVW7YsP5nwpM9Ge5oCqpvmMQKyuxByzo9TStNwB7efTHR0Yq9e3XwFefaWsSr2iKygD6xDM6CkDywPEG3Zn9iLp/VXSwSX0NiUcPOlBG2muIYdzWbgWyYOBx4rPXifPzF8ytc=
     on:
       tags: true
       all_branches: true
       repo: vinceallenvince/drawing-utils-lib
-env:
-  global:
-  - GH_REF: github.com/vinceallenvince/drawing-utils-lib.git
-  - secure: f/6OOalzi0RLEdbh+qV9q8IINikMAdP4SBIm7lnQHywDb1kAuP6hKgAVg3V1WDAhjggDettsmMp9JYvgA65BeWWBu53O+3YoG0xyTrfhlOw37tQAFvLCOALW5lfEZoSHGetVft59RTSUKvZTfqfJsa3ZKlU0YaCFghw+6OPwi5A=
