@@ -2,7 +2,6 @@
 node_modules
 reports
 doc
-out
 release
 
 #### FILES ####
@@ -10,4 +9,4 @@ release
 *.DS_Store
 *.swp
 *.map
-public/scripts/drawing-utils-lib.*
+public/scripts/drawing-utils-lib.ls
