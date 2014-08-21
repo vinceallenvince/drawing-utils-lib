@@ -17,7 +17,7 @@ You can also use the [standalone version](https://github.com/vinceallenvince/dra
 ```
 <html>
   <head>
-    <script src="scripts/drawing-utils-lib.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/drawing-utils-lib.min.js" type="text/javascript" charset="utf-8"></script>
   </head>
   ...
 ```
