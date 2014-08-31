@@ -38,6 +38,34 @@ Utils.getRandomNumber = function(low, high, flt) {
 };
 
 /**
+ * Determines the size of the browser window.
+ *
+ * @function extend
+ * @memberof System
+ * @returns {Object} The current browser window width and height.
+ */
+Utils.getWindowSize = function() {
+
+  var d = {
+    'width' : false,
+    'height' : false
+  };
+
+  if (typeof(window.innerWidth) !== 'undefined') {
+    d.width = window.innerWidth;
+    d.height = window.innerHeight;
+  } else if (typeof(document.documentElement) !== 'undefined' &&
+      typeof(document.documentElement.clientWidth) !== 'undefined') {
+    d.width = document.documentElement.clientWidth;
+    d.height = document.documentElement.clientHeight;
+  } else if (typeof(document.body) !== 'undefined') {
+    d.width = document.body.clientWidth;
+    d.height = document.body.clientHeight;
+  }
+  return d;
+};
+
+/**
  * Re-maps a number from one range to another.
  *
  * @function map
