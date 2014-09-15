@@ -24,11 +24,124 @@ test('Extends the properties and methods of a superClass onto a subClass.', func
   t.end();
 });
 
-test('getRandomNumber() generates a psuedo-random number within a range.', function(t) {
-  var num = Utils.getRandomNumber(10, 20);
-  t.assert(num >= 10 && num <= 20, 'returned number is within passed range.');
-  var num = Utils.getRandomNumber(10, 20, true);
-  t.assert(num % 1 !== 0, 'returned number is a float.');
+test('getRandomNumber() generates a psuedo-random number within an inclusive range.', function(t) {
+
+  var num, flag;
+
+  // INTEGER
+  num = Utils.getRandomNumber(0, 0);
+  t.assert(num == 0, 'if low and high == 0, returns 0.');
+
+  flag = false;
+  for (var i = 0; i < 1000; i++) {
+    if (Utils.getRandomNumber(i, i) !== i) {
+      flag = true;
+    }
+  }
+  t.notOk(flag, 'if low == high, returns their value.');
+
+  flag = false;
+  for (var i = 0; i < 1000; i++) {
+    num = Utils.getRandomNumber(i, i + 3);
+    if (num < i || num > i + 3) {
+      flag = true;
+    }
+  }
+  t.notOk(flag, 'passed positive numbers; returned number is within passed range.');
+
+  flag = false;
+  for (var i = -1000; i < 0; i++) {
+    num = Utils.getRandomNumber(i, -i);
+    if (num < i || num > -i) {
+      flag = true;
+    }
+  }
+  t.notOk(flag, 'passed mixed postive and negative numbers; returned number is within passed range.');
+
+  flag = false;
+  for (var i = -1000; i < 0; i++) {
+    num = Utils.getRandomNumber(i, i + 3);
+    if (num < i || num > i + 3) {
+      flag = true;
+    }
+  }
+  t.notOk(flag, 'passed negative numbers; returned number is within passed range.');
+
+  // FLOAT
+  num = Utils.getRandomNumber(0, 0, true);
+  t.assert(num == 0, 'floating; if low and high == 0, returns 0.');
+
+  flag = false;
+  for (var i = 0; i < 1000; i++) {
+    if (Utils.getRandomNumber(i, i, true) !== i) {
+      flag = true;
+    }
+  }
+  t.notOk(flag, 'floating; if low == high, returns their value.');
+
+  flag = false;
+  for (var i = 0; i < 1000; i++) {
+    num = Utils.getRandomNumber(i, i + 3, true);
+    if (num % 1 === 0 || num < i || num > i + 3) {
+      flag = true;
+    }
+  }
+  t.notOk(flag, 'passed floating positive numbers; returned number is within passed range.');
+
+  flag = false;
+  for (var i = -1000; i < 0; i++) {
+    num = Utils.getRandomNumber(i, -i, true);
+    if (num % 1 === 0 || num < i || num > -i) {
+      flag = true;
+    }
+  }
+  t.notOk(flag, 'passed mixed floating postive and negative numbers; returned number is within passed range.');
+
+  flag = false;
+  for (var i = -1000; i < 0; i++) {
+    num = Utils.getRandomNumber(i, i + 3, true);
+    if (num % 1 === 0 || num < i || num > i + 3) {
+      flag = true;
+    }
+  }
+  t.notOk(flag, 'passed floating negative numbers; returned number is within passed range.');
+
+  // PASSED FRACTIONS
+  flag = false;
+  for (var i = 0; i < 1; i += 0.001) {
+    if (Utils.getRandomNumber(i, i, true) !== i) {
+      flag = true;
+    }
+  }
+  t.notOk(flag, 'passed fractions; floating; if low == high, returns their value.');
+
+  flag = false;
+  for (var i = 0; i < 1; i += 0.001) {
+    num = Utils.getRandomNumber(i, i + 3, true);
+    if (num % 1 === 0 || num < i || num > i + 3) {
+      flag = true;
+    }
+  }
+  t.notOk(flag, 'passed floating positive fractions; returned number is within passed range.');
+
+  flag = false;
+  for (var i = -1; i < 0; i += 0.001) {
+    num = Utils.getRandomNumber(i, -i, true);
+    if (num % 1 === 0 || num < i || num > -i) {
+      flag = true;
+    }
+  }
+  t.notOk(flag, 'passed mixed floating postive and negative fractions; returned number is within passed range.');
+
+  flag = false;
+  for (var i = -1; i < 0; i += 0.001) {
+    num = Utils.getRandomNumber(i, i + 3, true);
+    if (num % 1 === 0 || num < i || num > i + 3) {
+      flag = true;
+    }
+  }
+  t.notOk(flag, 'passed floating negative fractions; returned number is within passed range.');
+
   t.end();
 });
 

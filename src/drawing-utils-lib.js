@@ -21,20 +21,21 @@ Utils.extend = function(subClass, superClass) {
 };
 
 /**
- * Generates a psuedo-random number within a range.
+ * Generates a psuedo-random number within an inclusive range.
  *
  * @function getRandomNumber
  * @memberof Utils
  * @param {number} low The low end of the range.
  * @param {number} high The high end of the range.
- * @param {boolean} [flt] Set to true to return a float.
+ * @param {boolean} [flt] Set to true to return a float or when passing floats as a range.
  * @returns {number} A number.
  */
 Utils.getRandomNumber = function(low, high, flt) {
   if (flt) {
-    return Math.random()*(high-(low-1)) + low;
+    return (Math.random() * (high - low)) + low;
   }
-  return Math.floor(Math.random()*(high-(low-1))) + low;
+  high++;
+  return Math.floor((Math.random() * (high - low))) + low;
 };
 
 /**
